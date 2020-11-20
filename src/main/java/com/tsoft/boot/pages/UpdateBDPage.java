@@ -8,7 +8,9 @@ import org.openqa.selenium.WebElement;
 public class UpdateBDPage extends BaseClass {
     private WebDriver driver;
     //Elements
-    By lbl_title = By.cssSelector("#header>h2");
+    private By lbl_title = By.cssSelector("#header>h2");
+    private By field_username = By.id("username");
+    private By field_password = By.id("password");
 
 
     public UpdateBDPage(WebDriver driver) {
@@ -18,4 +20,13 @@ public class UpdateBDPage extends BaseClass {
     public String getTitleText(){
         return getText(driver, lbl_title);
     }
+
+    public void setUsername(String username){
+        driver.findElement(field_username).sendKeys(username);
+    }
+
+    public void setPassword(String password){
+        driver.findElement(field_password).sendKeys(password);
+    }
+
 }
