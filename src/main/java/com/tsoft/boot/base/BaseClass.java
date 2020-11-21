@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BaseClass {
 
 
-    private static final long MAX_WAIT_TIME_SECONDS = 30;
+    private static final long MAX_WAIT_TIME_SECONDS = 40;
     private static final long NEXT_TRY_TIME_MILISECONDS = 200;
 
     public String getText(WebDriver driver, By byWebElement) {

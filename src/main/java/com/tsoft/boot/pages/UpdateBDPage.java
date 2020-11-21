@@ -13,6 +13,7 @@ public class UpdateBDPage extends BaseClass {
     private By field_password = By.id("password");
     private By button_update = By.xpath("//a/span[contains(text(),'Actualizar')]");
     private By lbl_result = By.cssSelector("#result.intro");
+    private By txt_success_result = By.xpath("//*[contains(text(),'You must log in to continue.')]");
 
 
     public UpdateBDPage(WebDriver driver) {
@@ -40,13 +41,13 @@ public class UpdateBDPage extends BaseClass {
         TakeScreenShots.takeScreenshot(driver, "Click button");
     }
 
-    public boolean isVisibleResultText(){
-        return isVisibleElement(driver, lbl_result);
-    }
-
     public String getResultText(){
         String text = getText(driver, lbl_result);
         TakeScreenShots.takeScreenshot(driver, "Result text");
         return text;
+    }
+
+    public boolean isVisibleSuccessResult(){
+        return isVisibleElement(driver, txt_success_result);
     }
 }
