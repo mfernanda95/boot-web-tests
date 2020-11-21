@@ -1,15 +1,8 @@
-package com.tsoft.boot.baseclass;
+package com.tsoft.boot.base;
 
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class BaseClass {
 
@@ -660,12 +653,19 @@ public class BaseClass {
         return  waitForExistsOfElement( driver,  byWebElement).getText();
     }
 
+    public void setText(WebDriver driver, By byWebElement, String text) {
+        driver.findElement(byWebElement).sendKeys(text);
+    }
 
     private WebElement waitForExistsOfElement(WebDriver driver, By byWebElement)  {
         WebDriverWait webDriverWait = new WebDriverWait(driver, MAX_WAIT_TIME_SECONDS, NEXT_TRY_TIME_MILISECONDS);
         return webDriverWait.until(ExpectedConditions.presenceOfElementLocated(byWebElement));
     }
 
+    public void click(WebDriver driver, By byWebElement) {
+        //driver.findElement(byWebElement).click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('style', 'background: green; border: 3px solid blue;');", driver.findElement(byWebElement));
+    }
 /*
 
     public static void moveToElement(WebDriver driver, String key, String locator) throws Throwable{

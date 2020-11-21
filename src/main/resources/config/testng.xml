@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="D:/projects/boot-web">
         <classes>
-            <class name="com.tsoft.boot.tests.UpdatingBD_HBK">
+            <class name="com.tsoft.boot.tests.UpdatingBD_HBK_Test">
                 <methods><include name="testOpenLink"/></methods>
             </class>
         </classes>

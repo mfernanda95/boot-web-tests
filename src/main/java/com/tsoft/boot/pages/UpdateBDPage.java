@@ -1,9 +1,9 @@
 package com.tsoft.boot.pages;
 
-import com.tsoft.boot.baseclass.BaseClass;
+import com.tsoft.boot.base.BaseClass;
+import com.tsoft.boot.utils.TakeScreenShots;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class UpdateBDPage extends BaseClass {
     private WebDriver driver;
@@ -11,6 +11,8 @@ public class UpdateBDPage extends BaseClass {
     private By lbl_title = By.cssSelector("#header>h2");
     private By field_username = By.id("username");
     private By field_password = By.id("password");
+    private By button_update = By.cssSelector("a>span:contains('Actualizar')");
+    private By lbl_result = By.cssSelector("#result.intro");
 
 
     public UpdateBDPage(WebDriver driver) {
@@ -18,15 +20,29 @@ public class UpdateBDPage extends BaseClass {
     }
 
     public String getTitleText(){
-        return getText(driver, lbl_title);
+        String text = getText(driver, lbl_title);
+        TakeScreenShots.takeScreenshot(driver, "Open Web");
+        return text;
     }
 
     public void setUsername(String username){
-        driver.findElement(field_username).sendKeys(username);
+        setText(driver, field_username, username);
+        TakeScreenShots.takeScreenshot(driver, "Send username");
     }
 
     public void setPassword(String password){
-        driver.findElement(field_password).sendKeys(password);
+        setText(driver, field_password, password);
+        TakeScreenShots.takeScreenshot(driver, "Send Password");
     }
 
+    public void clickUpdate() {
+        click(driver, button_update);
+        TakeScreenShots.takeScreenshot(driver, "Click button");
+    }
+
+    public String getResultText(){
+        String text = getText(driver, lbl_result);
+        TakeScreenShots.takeScreenshot(driver, "Result text");
+        return text;
+    }
 }
