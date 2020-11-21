@@ -9,6 +9,7 @@ public class UpdateBDPage extends BaseClass {
     private WebDriver driver;
     //Elements
     private By lbl_title = By.cssSelector("#header>h2");
+    private By txt_titleUpdateDatabase = By.xpath("//*[contains(text(),'Actualización de base de datos')]");
     private By field_username = By.id("username");
     private By field_password = By.id("password");
     private By button_update = By.xpath("//a/span[contains(text(),'Actualizar')]");
@@ -47,7 +48,17 @@ public class UpdateBDPage extends BaseClass {
         return text;
     }
 
+    public boolean isVisibleUpdateDatabaseTitle(){
+        TakeScreenShots.takeScreenshot(driver, "View Title Update Database");
+        return isVisibleElement(driver, txt_titleUpdateDatabase);
+    }
+
     public boolean isVisibleSuccessResult(){
+        TakeScreenShots.takeScreenshot(driver, "View Success Result");
         return isVisibleElement(driver, txt_success_result);
+    }
+
+    public void takeScreenshot(String name){
+        TakeScreenShots.takeScreenshot(driver, name);
     }
 }

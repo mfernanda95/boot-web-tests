@@ -9,7 +9,7 @@ public class UpdatingBD_HBK_Test extends BaseTest {
     public void updateDatabase(){
         System.out.println("[LOG] : Ingrese a la web: "+System.getProperty("url"));
 
-        if(updateBDPage.getTitleText().contains("Actualización de base de datos")){
+        if(updateBDPage.isVisibleUpdateDatabaseTitle()){
             System.out.println("[LOG] : Se realizara la actualizacion de base de datos  ");
             updateBDPage.setUsername(System.getProperty("username")); //"APP_DEVOPS_HB_DESA"
             updateBDPage.setPassword(System.getProperty("password")); //4ppHBd3vops
@@ -27,6 +27,7 @@ public class UpdatingBD_HBK_Test extends BaseTest {
             }
         }else{
             System.err.println("[ERROR] : No es necesario realizar la actualizacion de Base de Datos");
+            updateBDPage.takeScreenshot("Not need update database");
         }
     }
 
