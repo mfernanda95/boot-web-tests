@@ -4,7 +4,7 @@
     <test verbose="2" preserve-order="true" name="D:/projects/boot-web">
         <classes>
             <class name="com.tsoft.boot.tests.UpdatingBD_HBK_Test">
-                <methods><include name="testOpenLink"/></methods>
+                <methods><include name="updateDatabase"/></methods>
             </class>
         </classes>
     </test>

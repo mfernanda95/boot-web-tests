@@ -11,7 +11,7 @@ public class UpdateBDPage extends BaseClass {
     private By lbl_title = By.cssSelector("#header>h2");
     private By field_username = By.id("username");
     private By field_password = By.id("password");
-    private By button_update = By.cssSelector("a>span:contains('Actualizar')");
+    private By button_update = By.xpath("//a/span[contains(text(),'Actualizar')]");
     private By lbl_result = By.cssSelector("#result.intro");
 
 
@@ -38,6 +38,10 @@ public class UpdateBDPage extends BaseClass {
     public void clickUpdate() {
         click(driver, button_update);
         TakeScreenShots.takeScreenshot(driver, "Click button");
+    }
+
+    public boolean isVisibleResultText(){
+        return isVisibleElement(driver, lbl_result);
     }
 
     public String getResultText(){

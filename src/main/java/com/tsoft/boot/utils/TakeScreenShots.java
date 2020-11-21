@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class TakeScreenShots {
     public static void takeScreenshot(WebDriver driver, String name){
+        new File("screenshots").mkdir();
         TakesScreenshot camera = (TakesScreenshot)driver;
         File screenshot = camera.getScreenshotAs(OutputType.FILE);
         try{

@@ -19,7 +19,7 @@ public class BaseTest{
     protected UpdateBDPage updateBDPage;
     @BeforeClass
     public void setUp(){
-            WebDriverManager.chromedriver().setup();
+            //WebDriverManager.chromedriver().setup();
             //WebDriverManager.chromedriver().version("78.0.3904.70").setup();
             //driver = new ChromeDriver();
             System.setProperty("webdriver.chrome.driver","/u01/chromedriver/chromedriver");
